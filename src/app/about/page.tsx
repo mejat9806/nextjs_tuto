@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function AboutPage() {
   return (
-    <div className="grid grid-cols-2 items-center ">
+    <div className="grid sm:grid-cols-2  items-center ">
       <div className="flex justify-center">
         <div className="gap-y-10 flex flex-col md:w-[80%] w-full">
           <h2 className="text-teal-400 font-extrabold text-lg sm:text-xl">

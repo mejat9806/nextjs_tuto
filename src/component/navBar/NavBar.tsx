@@ -3,6 +3,7 @@ import Link from "next/link";
 import LinkToPage from "./links/LinkToPage";
 import localFont from "next/font/local";
 import { useState } from "react";
+import Image from "next/image";
 const myFont = localFont({
   src: [{ path: "../../../public/font/Anton-Regular.ttf" }],
   variable: "--font-Anton",
@@ -47,16 +48,19 @@ function NavBar() {
           <LinkToPage links={{ href: "/login", label: "Login" }} />
         )}
       </div>
-      <button
-        onClick={() => setOpen((open) => !open)}
-        className="md:hidden z-50"
-      >
-        Menu
+      <button className="md:hidden z-50">
+        <Image
+          src={"/menu.png"}
+          width={30}
+          height={30}
+          alt="menu"
+          onClick={() => setOpen((open) => !open)}
+        />
       </button>
       {open && (
         <div
           className={`flex flex-col absolute right-0 items-center  animate-silde h-[100vh] 
-            justify-center gap-10 top-0 bg-teal-300/80 md:hidden z-10  w-[80vw]`}
+            justify-center gap-10 top-0 bg-darkteal/95 md:hidden z-10  w-[80vw]`}
         >
           {links.map((link) => (
             <LinkToPage key={link.label} links={link}></LinkToPage>

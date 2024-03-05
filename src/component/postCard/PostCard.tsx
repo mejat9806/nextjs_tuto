@@ -5,12 +5,12 @@ function PostCard({ src, title }: { src: string; title: string }) {
   const titleForUse = title.replaceAll("-", " ");
 
   return (
-    <div className=" ">
-      <div className="flex ">
-        <div className="imageContainerBlog relative">
+    <div className="sm:w-[80%] md::w-[50%] w-full mx-auto ">
+      <div className="flex">
+        <div className="imageContainerBlog ">
           <Image src={src} alt={src} fill objectFit="cover" />
         </div>
-        <span className="capitalize  date m-auto ">22/22/12</span>
+        <span className="capitalize  date my-auto  ">22/22/12</span>
       </div>
       <div className="w-[80%]">
         <h1 className="first-letter:uppercase text-xl font-extrabold">

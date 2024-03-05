@@ -95,12 +95,22 @@ body {
   transform: rotate(90deg);
 }
 .imageContainerBlog {
-  width: 500px;
-  height: 400px;
+  @apply md:w-[500px] md:h-[500px] relative w-[300px] h-[300px] sm:w-[350px];
+}
+.imageContainerBlogProfile {
+  width: 50px;
+  height: 50px;
   position: relative;
 }
+.imageContainerBlogSingle {
+  height: calc(100vh - 200px);
+  position: relative;
+}
+img {
+  object-fit: cover;
+}
 .Button {
-  @apply p-2 md:min-w-[90px] min-w-[80px]  text-black font-semibold rounded-md hover:bg-teal-600 hover:text-white cursor-pointer  sm:text-base bg-teal-300 text-xs;
+  @apply p-2 md:min-w-[90px] min-w-[80px]  text-black font-semibold rounded-md hover:bg-teal-600 hover:text-white cursor-pointer   bg-teal-300 text-xs sm:text-xs md:text-base;
 }
 .homeP {
   @apply text-sm sm:text-base;
@@ -114,7 +124,7 @@ body {
 }
 
 .imageContainer {
-  @apply w-[300px] h-[300px] lg:w-[800px] lg:h-[600px] md:w-[400px] md:h-[400px] relative;
+  @apply w-[300px] h-[300px] lg:w-[600px] lg:h-[600px] md:w-[400px] md:h-[400px] relative;
 }
 
 .inputStyle {

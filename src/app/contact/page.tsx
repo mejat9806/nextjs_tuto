@@ -4,7 +4,7 @@ import Image from "next/image";
 function page() {
   return (
     <div className="flex justify-center items-center">
-      <div className="grid grid-cols-2 gap-10">
+      <div className="flex md:flex-row flex-col gap-10 items-center">
         <div className="imageContainer">
           <Image src="/contact.png" alt="contact image" fill />
         </div>

@@ -21,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className}   flex flex-col justify-between  `}>
+      <body
+        className={`${roboto.className}   flex flex-col justify-between sm:mx-10`}
+      >
         <NavBar />
         <div className="flex-1 justify-center my-10 flex">{children}</div>
         <Footer />

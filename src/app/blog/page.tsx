@@ -23,10 +23,12 @@ const imageSrcs = [
 ];
 function page() {
   return (
-    <div className="grid grid-cols-3 gap-10 ">
-      {imageSrcs.map((image) => (
-        <PostCard src={image.url} key={image.id} title={image.title} />
-      ))}
+    <div className="mx-auto w-[80%]">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">
+        {imageSrcs.map((image) => (
+          <PostCard src={image.url} key={image.id} title={image.title} />
+        ))}
+      </div>
     </div>
   );
 }
