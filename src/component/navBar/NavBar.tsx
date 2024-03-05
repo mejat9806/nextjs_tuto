@@ -14,6 +14,7 @@ function NavBar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
+    { href: "/blog", label: "Blog" },
   ];
   //temp this is for login fuction
   const session = true;
@@ -29,7 +30,7 @@ function NavBar() {
           <span className="text-teal-200">o</span>
         </h1>
       </Link>
-      <div className="sm:w-full md:w-1/2 justify-evenly gap-3 hidden sm:flex">
+      <div className=" md:w-1/4 justify-evenly gap-3 hidden md:flex ">
         {links.map((link) => (
           <LinkToPage key={link.label} links={link}></LinkToPage>
         ))}
@@ -48,14 +49,14 @@ function NavBar() {
       </div>
       <button
         onClick={() => setOpen((open) => !open)}
-        className="sm:hidden z-50"
+        className="md:hidden z-50"
       >
         Menu
       </button>
       {open && (
         <div
           className={`flex flex-col absolute right-0 items-center  animate-silde h-[100vh] 
-            justify-center gap-10 top-0 bg-teal-300/80 sm:hidden z-10  w-[80vw]`}
+            justify-center gap-10 top-0 bg-teal-300/80 md:hidden z-10  w-[80vw]`}
         >
           {links.map((link) => (
             <LinkToPage key={link.label} links={link}></LinkToPage>

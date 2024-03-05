@@ -88,14 +88,35 @@ body {
     opacity: 100;
   }
 }
-
-.HomeButton {
-  @apply p-2 md:min-w-[90px] min-w-[80px]  text-black font-semibold rounded-md hover:bg-teal-600 hover:text-white cursor-pointer text-sm sm:text-base;
+.img {
+  object-fit: cover;
+}
+.date {
+  transform: rotate(90deg);
+}
+.imageContainerBlog {
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+.Button {
+  @apply p-2 md:min-w-[90px] min-w-[80px]  text-black font-semibold rounded-md hover:bg-teal-600 hover:text-white cursor-pointer  sm:text-base bg-teal-300 text-xs;
 }
 .homeP {
   @apply text-sm sm:text-base;
 }
 
 .aboutSmallThing {
-  @apply text-teal-400 font-extrabold text-lg;
+  @apply text-teal-400 font-extrabold md:text-lg text-base;
+}
+.aboutSmallThingText {
+  @apply md:text-lg text-xs sm:text-sm;
+}
+
+.imageContainer {
+  @apply w-[300px] h-[300px] lg:w-[800px] lg:h-[600px] md:w-[400px] md:h-[400px] relative;
+}
+
+.inputStyle {
+  @apply placeholder:capitalize bg-teal-900 p-5 rounded-md focus:bg-teal-100 transition-colors duration-100 text-black focus:ring-2 focus:outline-none  focus:ring-teal-300 focus:ring-offset-current focus:ring-offset-2;
 }

@@ -16,8 +16,8 @@ function page() {
               cumque natus.
             </p>
             <div className="mt-10 flex gap-5 ">
-              <button className="HomeButton bg-teal-200">Learn more </button>
-              <button className="HomeButton bg-white">Contact</button>
+              <button className="Button !bg-teal-200">Learn more </button>
+              <button className="Button !bg-white">Contact</button>
             </div>
             <div>
               <div className="relative sm:w-[350px] sm:h-[50px]  w-[300px] h-[50px] filter grayscale">

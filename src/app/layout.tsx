@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className}   flex flex-col justify-between  `}>
         <NavBar />
-        <div className="flex-1 justify-center mt-10 flex">{children}</div>
+        <div className="flex-1 justify-center my-10 flex">{children}</div>
         <Footer />
       </body>
     </html>
