@@ -1,28 +1,45 @@
+import { postProp } from "@/app/blog/page";
 import Image from "next/image";
 import Link from "next/link";
 
-function PostCard({ src, title }: { src: string; title: string }) {
-  const titleForUse = title.replaceAll("-", " ");
-
+function PostCard({
+  src,
+  title,
+  post,
+}: {
+  src?: string;
+  title?: string;
+  post: postProp;
+}) {
+  /*   const titleForUse = title.replaceAll("-", " ");
+   */
+  // console.log(
+  //   post,
+  //   "https://images.pexels.com/photos/20350889/pexels-photo-20350889/free-photo-of-a-church-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  // );
   return (
     <div className="sm:w-[80%] md::w-[50%] w-full mx-auto ">
       <div className="flex">
         <div className="imageContainerBlog ">
-          <Image src={src} alt={src} fill objectFit="cover" />
+          <Image
+            src={
+              "https://images.pexels.com/photos/20350889/pexels-photo-20350889/free-photo-of-a-church-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
+            alt={
+              "https://images.pexels.com/photos/20350889/pexels-photo-20350889/free-photo-of-a-church-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            }
+            fill
+            objectFit="cover"
+          />
         </div>
         <span className="capitalize  date my-auto  ">22/22/12</span>
       </div>
       <div className="w-[80%]">
         <h1 className="first-letter:uppercase text-xl font-extrabold">
-          {titleForUse}
+          {post.title}
         </h1>
-        <p className="text-sm text-gray-400">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero nostrum
-          nobis laudantium, excepturi sunt aliquam voluptatem culpa dolore.
-          Laborum, eligendi facere aut iusto eaque quos rem omnis quaerat autem
-          optio.
-        </p>
-        <Link href="/blog/post">Read More</Link>
+        <p className="text-sm text-gray-400">{post.body}</p>
+        <Link href={`/blog/${post.id}`}>Read More</Link>
       </div>
     </div>
   );

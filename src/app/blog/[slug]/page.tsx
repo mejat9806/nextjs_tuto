@@ -1,7 +1,20 @@
+import UserData from "@/component/UserData";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
-function SingularBlogPage() {
+async function getData(slug: string) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+  if (!res.ok) {
+    throw new Error(res.statusText);
+  }
+  const data = await res.json();
+  return data;
+}
+async function SingularBlogPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const singularPostData = await getData(slug);
+  console.log(singularPostData.userId);
   return (
     <div className="flex gap-10 justify-center ">
       <div className="imageContainerBlogSingle flex-[1] hidden md:flex">
@@ -14,7 +27,9 @@ function SingularBlogPage() {
         />
       </div>
       <div className=" flex-[2] flex items-start flex-col gap-4 p-6">
-        <h1 className="text-7xl text-teal-500 font-bold">Title</h1>
+        <h1 className="text-7xl text-teal-500 font-bold">
+          {singularPostData.title}
+        </h1>
         <div className="flex flex-col gap-5 ">
           <div className="flex items-start gap-2">
             <div className="imageContainerBlogProfile ">
@@ -26,10 +41,10 @@ function SingularBlogPage() {
               />
             </div>{" "}
             <div className="flex  flex-col">
-              <div className="flex gap-2">
-                <h1>Author </h1>
-                <span>by</span>
-                <h1 className="first-letter:capitalize">amer</h1>
+              <div>
+                <Suspense fallback={<div>...loading</div>}>
+                  <UserData userId={singularPostData.userId} />
+                </Suspense>
               </div>
               <div className="flex gap-3 font-medium">
                 <span>Published</span>
@@ -39,12 +54,7 @@ function SingularBlogPage() {
           </div>
 
           <div className="sm:w-[80%] w-full">
-            <p className="text-[15px]">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-              sunt commodi deleniti quam quasi laborum consectetur saepe eius
-              quis et non id, dignissimos inventore culpa iste ex laboriosam
-              molestiae suscipit!
-            </p>
+            <p className="text-[15px]">{singularPostData.body}</p>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/component/navBar/NavBar";
 import Footer from "@/component/footer/Footer";
+import TestClientSideProviderTest from "@/component/testClientSideProviderTest";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -24,9 +25,11 @@ export default function RootLayout({
       <body
         className={`${roboto.className}   flex flex-col justify-between sm:mx-10`}
       >
-        <NavBar />
-        <div className="flex-1 justify-center my-10 flex">{children}</div>
-        <Footer />
+        <TestClientSideProviderTest>
+          <NavBar />
+          <div className="flex-1 justify-center my-10 flex">{children}</div>
+          <Footer />
+        </TestClientSideProviderTest>
       </body>
     </html>
   );

@@ -88,9 +88,7 @@ body {
     opacity: 100;
   }
 }
-.img {
-  object-fit: cover;
-}
+
 .date {
   transform: rotate(90deg);
 }
@@ -124,7 +122,7 @@ img {
 }
 
 .imageContainer {
-  @apply w-[300px] h-[300px] lg:w-[600px] lg:h-[600px] md:w-[400px] md:h-[400px] relative;
+  @apply w-[300px] h-[300px] lg:w-[1000px] lg:h-[600px] md:w-[400px] md:h-[400px] relative;
 }
 
 .inputStyle {
