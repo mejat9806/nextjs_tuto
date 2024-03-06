@@ -1,4 +1,5 @@
 import PostCard from "@/component/postCard/PostCard";
+import { getPost } from "@/lib/data";
 export type postProp = {
   userId: number;
   id: number;
@@ -28,7 +29,7 @@ const postsTest = [
   },
 ];
 
-async function getData() {
+/* async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     // cache: "no-store",
     next: { revalidate: 3000 },
@@ -38,9 +39,10 @@ async function getData() {
   }
   const data = await res.json();
   return data;
-}
+} */
 async function BlogPage() {
-  const posts = await getData();
+  // const posts = await getData();
+  const posts = getPost(); //fetch without api
   return (
     <div className="mx-auto w-[80%]">
       <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">

@@ -11,12 +11,8 @@ function PostCard({
   title?: string;
   post: postProp;
 }) {
-  /*   const titleForUse = title.replaceAll("-", " ");
-   */
-  // console.log(
-  //   post,
-  //   "https://images.pexels.com/photos/20350889/pexels-photo-20350889/free-photo-of-a-church-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  // );
+  // const titleForUse = title.replaceAll("-", " ");
+
   return (
     <div className="sm:w-[80%] md::w-[50%] w-full mx-auto ">
       <div className="flex">
