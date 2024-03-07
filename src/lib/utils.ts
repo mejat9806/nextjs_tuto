@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
+require("dotenv").config();
 
 const connection: any = {};
 
 export const connectToDb = async () => {
   try {
     if (connection.isConnected) {
-      console.log("connection exiss");
+      console.log("connection exist");
       return;
     }
     const mongoURL = process.env.MONGO;
