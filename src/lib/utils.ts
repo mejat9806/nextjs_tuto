@@ -5,7 +5,7 @@ const connection: any = {};
 export const connectToDb = async () => {
   try {
     if (connection.isConnected) {
-      console.log("connection exist");
+      console.log("connection exists");
       return;
     }
     const mongoURL = process.env.MONGO;
