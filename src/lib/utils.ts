@@ -14,7 +14,7 @@ export const connectToDb = async () => {
 
     const mongoURL = process.env.MONGO;
 
-    const db = await mongoose.connect(mongoURL);
+    const db = await mongoose.connect(mongoURL as string);
     connection.isConnected = db.connections[0].readyState;
     console.log("Connected to MongoDB");
   } catch (error) {
