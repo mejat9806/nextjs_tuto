@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
+const mongoURL = process.env.MONGO;
 const connection: any = {};
 
 export const connectToDb = async () => {
@@ -11,8 +12,6 @@ export const connectToDb = async () => {
       console.log("Connection exists");
       return;
     }
-
-    const mongoURL = process.env.MONGO;
 
     const db = await mongoose.connect(mongoURL as string);
     connection.isConnected = db.connections[0].readyState;
