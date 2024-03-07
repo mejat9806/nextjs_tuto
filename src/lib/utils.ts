@@ -6,9 +6,10 @@ dotenv.config();
 
 // Access the MongoDB URI from the environment variables
 const mongoURL = process.env.MONGO;
-console.log(typeof mongoURL);
+console.log(mongoURL);
+
 // Object to track connection status
-const connection = {};
+const connection: any = {};
 
 // Function to connect to MongoDB
 export const connectToDb = async () => {
@@ -17,6 +18,11 @@ export const connectToDb = async () => {
     if (connection.isConnected) {
       console.log("Connection exists");
       return;
+    }
+
+    // Check if mongoURL is undefined
+    if (!mongoURL) {
+      throw new Error("MongoDB URI is undefined");
     }
 
     // Connect to MongoDB using the URI from environment variables
