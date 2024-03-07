@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-require("dotenv").config();
 
 const connection: any = {};
 
@@ -10,6 +9,7 @@ export const connectToDb = async () => {
       return;
     }
     const mongoURL = process.env.MONGO;
+    console.log(process.env.MONGO);
     const db = await mongoose.connect(mongoURL as string);
     connection.isConnected = db.connections[0].readyState;
   } catch (error) {
