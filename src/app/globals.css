@@ -24,7 +24,7 @@
 }
 
 body {
-  @apply bg-darkteal text-white px-10 h-screen;
+  @apply bg-darkteal text-white;
 }
 
 .afterLink:hover::after {

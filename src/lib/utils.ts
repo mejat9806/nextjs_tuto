@@ -6,7 +6,6 @@ dotenv.config();
 
 // Access the MongoDB URI from the environment variables
 const mongoURL = process.env.MONGO;
-console.log(mongoURL);
 
 // Object to track connection status
 const connection: any = {};

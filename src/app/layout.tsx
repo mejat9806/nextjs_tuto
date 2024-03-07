@@ -4,7 +4,7 @@ import "./globals.css";
 import NavBar from "@/component/navBar/NavBar";
 import Footer from "@/component/footer/Footer";
 import TestClientSideProviderTest from "@/component/testClientSideProviderTest";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700"],
@@ -22,15 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${roboto.className}   flex flex-col justify-between sm:mx-10`}
-      >
-        <TestClientSideProviderTest>
-          <NavBar />
-          <div className="flex-1 justify-center my-10 flex">{children}</div>
-          <Footer />
-        </TestClientSideProviderTest>
+      {/* <TestClientSideProviderTest> //this for useContext and redux react query*/}
+
+      <body className={`${roboto.className}   flex flex-col  sm:mx-10 h-svh`}>
+        <NavBar />
+        <div className="flex-1 justify-center my-10 flex">{children}</div>
+        <Footer />
       </body>
+      {/* </TestClientSideProviderTest> */}
+      <SpeedInsights />
     </html>
   );
 }
