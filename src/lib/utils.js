@@ -6,9 +6,9 @@ dotenv.config({ path: "../../.env" });
 
 // Access the MongoDB URI from the environment variables
 const mongoURL = process.env.MONGO;
-console.log(mongoURL);
+console.log(typeof mongoURL);
 // Object to track connection status
-const connection: any = {};
+const connection = {};
 
 // Function to connect to MongoDB
 export const connectToDb = async () => {
@@ -20,7 +20,7 @@ export const connectToDb = async () => {
     }
 
     // Connect to MongoDB using the URI from environment variables
-    const db = await mongoose.connect(mongoURL as string);
+    const db = await mongoose.connect(mongoURL);
 
     // Set the connection status
     connection.isConnected = db.connections[0].readyState;

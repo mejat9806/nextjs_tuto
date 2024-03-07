@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/loading.jsx",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    "src/lib/utils.js"
   ],
   "exclude": ["node_modules"]
 }
