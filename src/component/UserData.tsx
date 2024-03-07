@@ -15,11 +15,9 @@ async function getUserData(userId: number) {
   return res.json();
 } */
 async function UserData({ userId }: { userId: number | undefined }) {
-  console.log(userId);
   //const userData = await getUserData(userId);
   if (!userId) return null;
   const user = await getPostUser(userId);
-  console.log(user.img);
   return (
     <div className="flex gap-2 mb-5 items-center">
       <div className="imageContainerBlogProfile ">

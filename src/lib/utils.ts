@@ -19,7 +19,9 @@ export const connectToDb = async () => {
     }
 
     console.log("Connecting to MongoDB:", mongoURL);
-    const db = await mongoose.connect(mongoURL);
+    const db = await mongoose.connect(
+      "mongodb+srv://ameraizat98:ameraizat98@cluster0.ojb3uvl.mongodb.net/next14tuto?retryWrites=true&w=majority&appName=Cluster0",
+    );
     connection.isConnected = db.connections[0].readyState;
     console.log("Connected to MongoDB");
   } catch (error) {
