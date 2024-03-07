@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+require("dotenv").config({ path: "ENV_FILENAME" });
 
 const connection: any = {};
 
