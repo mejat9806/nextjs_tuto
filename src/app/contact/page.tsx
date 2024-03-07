@@ -1,5 +1,6 @@
 //import HydrationComponent from "@/component/HydrationComponent";
 import FormInput from "@/component/formInput/FormInput";
+import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -10,6 +11,11 @@ import { useEffect, useState } from "react";
   },
 ); */
 // console.log("it work here");
+export const metadata: Metadata = {
+  title: "Contact page",
+  description: "my First next js App",
+};
+
 function ContactPge() {
   /*   const [isClient, setisClient] = useState(false); //false because it will be ssr initially
   useEffect(() => {

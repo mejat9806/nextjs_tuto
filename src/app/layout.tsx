@@ -11,7 +11,7 @@ const roboto = Roboto({
 }); //this is for font //this is subset is like what language we want
 
 export const metadata: Metadata = {
-  title: "Next JS test",
+  title: { default: "Next js 14 Homepage", template: "%s | Next js 14" }, //this is for SEO purposes the $s will be replaced with page link when we go into it
   description: "my First next js App",
 };
 

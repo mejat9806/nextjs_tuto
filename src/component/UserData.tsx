@@ -1,7 +1,8 @@
 // import { getPostUser } from "@/lib/data";
 
 import { getPostUser } from "@/lib/data";
-
+import Image from "next/image";
+/* 
 async function getUserData(userId: number) {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId} `,
@@ -12,18 +13,28 @@ async function getUserData(userId: number) {
   }
 
   return res.json();
-}
+} */
 async function UserData({ userId }: { userId: number | undefined }) {
   console.log(userId);
   //const userData = await getUserData(userId);
   if (!userId) return null;
-  const user = getPostUser(userId);
-  //   console.log(user);
+  const user = await getPostUser(userId);
+  console.log(user.img);
   return (
-    <div className="flex gap-2">
-      <h1>Author </h1>
-      <span>by</span>
-      <h1>{user?.name}</h1>
+    <div className="flex gap-2 mb-5 items-center">
+      <div className="imageContainerBlogProfile ">
+        <Image
+          src={user.img ? user.img : "/noavatar.png"}
+          fill
+          alt="profile"
+          className="rounded-full"
+        />
+      </div>{" "}
+      <div className="flex gap-2">
+        <h1>Author </h1>
+        <span>by</span>
+        <h1 className="first-letter:uppercase">{user?.username}</h1>
+      </div>
     </div>
   );
 }

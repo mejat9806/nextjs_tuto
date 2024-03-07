@@ -1,12 +1,7 @@
 import PostCard from "@/component/postCard/PostCard";
-import { getPost } from "@/lib/data";
-export type postProp = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
-const postsTest = [
+import { getPost, postProp } from "@/lib/data";
+
+/* const postsTest = [
   {
     id: 1,
     url: "https://images.pexels.com/photos/20447470/pexels-photo-20447470/free-photo-of-kawah-ijen.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -28,7 +23,7 @@ const postsTest = [
     title: "trees-on-snowy-day",
   },
 ];
-
+ */
 /* async function getData() {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
     // cache: "no-store",
@@ -42,13 +37,13 @@ const postsTest = [
 } */
 async function BlogPage() {
   // const posts = await getData();
-  const posts = getPost(); //fetch without api
+  const posts = await getPost(); //fetch without api
   return (
-    <div className="mx-auto w-[80%]">
+    <div className="mx-auto w-[80%] h-screen">
       <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">
         {posts.map((post: postProp) => (
           <PostCard post={post} key={post.id} />
-        ))}
+        ))}{" "}
         {/*  {postsTest.map((post) => (
           <PostCard src={post.url} key={post.id} title={post.title} />
         ))} */}

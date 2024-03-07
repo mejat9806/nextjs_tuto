@@ -12,52 +12,51 @@ import { Suspense } from "react";
   const data = await res.json();
   return data;
 } */
+export const generateMetadata = async function ({
+  //this good for SEO this dynamically generated
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const post = await getPostsingle(slug);
+
+  return {
+    title: post.title,
+    description: post.desc,
+  };
+};
 async function SingularBlogPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
+
   // const singularPostData = await getData(slug);
   // console.log(singularPostData.userId);
-  const singledata = getPostsingle(slug);
+  const post = await getPostsingle(slug);
   return (
     <div className=" w-full h-svh justify-center flex ">
       <div className="flex w-full justify-center">
-        <div className=" imageContainerBlogSingle hidden sm:flex  flex-1 max-w-96">
-          <Image
-            src={
-              "https://images.pexels.com/photos/20350889/pexels-photo-20350889/free-photo-of-a-church-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            }
-            fill
-            alt="ijen"
-          />
+        <div className=" imageContainerBlogSingle hidden md:flex  flex-1 max-w-96 min-w-[200px]">
+          <Image src={post.img} fill alt="ijen" />
         </div>
         <div className=" flex flex-2 items-start flex-col gap-4 p-6 ">
-          <h1 className="text-7xl text-teal-500 font-bold">
-            {singledata?.title}
-          </h1>
+          <h1 className="text-7xl text-teal-500 font-bold">{post.title}</h1>
           <div className="flex flex-col gap-5 ">
             <div className="flex items-start gap-2">
-              <div className="imageContainerBlogProfile ">
-                <Image
-                  src="https://images.pexels.com/photos/20350889/pexels-photo-20350889/free-photo-of-a-church-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  fill
-                  alt="profile"
-                  className="rounded-full"
-                />
-              </div>{" "}
               <div className="flex  flex-col">
                 <div>
                   <Suspense fallback={<div>...loading</div>}>
-                    <UserData userId={singledata?.userId} />
+                    <UserData userId={post.userId} />
                   </Suspense>
                 </div>
                 <div className="flex gap-3 font-medium">
                   <span>Published</span>
-                  <span>0.1.1.1.1</span>
+                  <span>{post.createdAt.toString().slice(4, 16)}</span>
                 </div>
               </div>
             </div>
 
             <div className=" w-full">
-              <p className="text-[15px] flex flex-wrap">{singledata?.body}</p>
+              <p className="text-[15px] flex flex-wrap">{post?.desc}</p>
             </div>
           </div>
         </div>

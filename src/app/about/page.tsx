@@ -1,4 +1,9 @@
+import { Metadata } from "next";
 import Image from "next/image";
+export const metadata: Metadata = {
+  title: "About page ",
+  description: "my First next js App about page",
+};
 
 function AboutPage() {
   return (

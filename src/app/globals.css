@@ -103,9 +103,11 @@ body {
 .imageContainerBlogSingle {
   height: calc(100vh - 200px);
   position: relative;
+
   /* Take up available space */
 }
-img {
+.imageContainerBlogProfile > img {
+  object-fit: cover;
 }
 .Button {
   @apply p-2 md:min-w-[90px] min-w-[80px]  text-black font-semibold rounded-md hover:bg-teal-600 hover:text-white cursor-pointer   bg-teal-300 text-xs sm:text-xs md:text-base;
