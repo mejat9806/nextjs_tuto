@@ -8,11 +8,12 @@ const connection: any = {};
 export const connectToDb = async () => {
   try {
     if (connection.isConnected) {
-      console.log("Connection already exists");
+      console.log("Connection exists");
       return;
     }
 
     const mongoURL = process.env.MONGO;
+    console.log("MongoDB URI:", mongoURL); // Add this line for debugging
     if (!mongoURL) {
       throw new Error("MongoDB URI not found in environment variables");
     }
