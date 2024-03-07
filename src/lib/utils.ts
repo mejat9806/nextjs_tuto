@@ -13,12 +13,7 @@ export const connectToDb = async () => {
     }
 
     const mongoURL = process.env.MONGO;
-    console.log("MongoDB URI:", mongoURL); // Add this line for debugging
-    if (!mongoURL) {
-      throw new Error("MongoDB URI not found in environment variables");
-    }
 
-    console.log("Connecting to MongoDB:", mongoURL);
     const db = await mongoose.connect(mongoURL);
     connection.isConnected = db.connections[0].readyState;
     console.log("Connected to MongoDB");
