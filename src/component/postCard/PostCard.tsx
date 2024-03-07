@@ -9,8 +9,16 @@ function PostCard({ post }: { post: postProp }) {
     <div className="sm:w-[80%] md::w-[50%] w-full mx-auto ">
       <div className="flex">
         <div className="imageContainerBlog ">
-          {post.img && (
+          {post.img ? (
             <Image src={post.img} alt={post.img} fill objectFit="cover" />
+          ) : (
+            <div className=" h-full w-full flex justify-center items-center backdrop-blur-3xl bg-teal-200/20 ">
+              <div className="h-1/2 w-1/2 flex justify-center items-center backdrop-blur-3xl  bg-red-400/90 ">
+                <h1 className="text-black text-5xl font-extrabold  ">
+                  No Image
+                </h1>
+              </div>
+            </div>
           )}
         </div>
         <span className="capitalize  date my-auto  ">22/22/12</span>

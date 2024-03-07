@@ -39,7 +39,7 @@ async function BlogPage() {
   // const posts = await getData();
   const posts = await getPost(); //fetch without api
   return (
-    <div className="mx-auto w-[80%] h-screen">
+    <div className="mx-auto w-[80%] ">
       <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">
         {posts.map((post: postProp) => (
           <PostCard post={post} key={post.id} />

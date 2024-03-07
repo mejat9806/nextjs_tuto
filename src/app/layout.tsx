@@ -24,7 +24,9 @@ export default function RootLayout({
     <html lang="en">
       {/* <TestClientSideProviderTest> //this for useContext and redux react query*/}
 
-      <body className={`${roboto.className}   flex flex-col  sm:mx-10 h-svh`}>
+      <body
+        className={`${roboto.className}   flex flex-col  sm:mx-10  justify-between`}
+      >
         <NavBar />
         <div className="flex-1 justify-center my-10 flex">{children}</div>
         <Footer />

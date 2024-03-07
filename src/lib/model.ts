@@ -44,7 +44,6 @@ const postSchema = new mongoose.Schema(
     img: {
       type: "String",
     },
-    isAdmin: { type: "Boolean", default: false },
     userId: {
       type: "String",
       required: true,
