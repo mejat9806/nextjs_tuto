@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 // Load environment variables from .env file
-dotenv.config();
+dotenv.config({ path: "../../.env" });
 
 // Access the MongoDB URI from the environment variables
 const mongoURL = process.env.MONGO;
-
+console.log(mongoURL);
 // Object to track connection status
 const connection: any = {};
 
