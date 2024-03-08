@@ -26,6 +26,7 @@ import { getPost, postProp } from "@/lib/data";
  */
 
 async function getData() {
+  //!this is using api route
   const res = await fetch("http://localhost:3000/api/blog", {
     // cache: "no-store",
     next: { revalidate: 3000 },
