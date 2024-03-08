@@ -27,7 +27,7 @@ function ContactPge() {
   console.log(a); */
   console.log("lets check where it work ");
   return (
-    <div className="flex lg:flex-row flex-col gap-5 lg:flex-none flex-1 items-center">
+    <div className="flex lg:flex-row flex-col gap-5 lg:flex-none flex-1 items-center h-svh">
       <div className="imageContainer">
         <Image src="/contact.png" alt="contact image" fill />
       </div>

@@ -6,7 +6,7 @@ function PostCard({ post }: { post: postProp }) {
   // const titleForUse = title.replaceAll("-", " ");
 
   return (
-    <div className="sm:w-[80%] md::w-[50%] w-full mx-auto ">
+    <div className="sm:w-[80%] md:w-[50%] w-full mx-auto ">
       <div className="flex">
         <div className="imageContainerBlog ">
           {post.img ? (

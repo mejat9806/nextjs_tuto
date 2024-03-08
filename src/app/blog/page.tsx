@@ -24,8 +24,9 @@ import { getPost, postProp } from "@/lib/data";
   },
 ];
  */
-/* async function getData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+
+async function getData() {
+  const res = await fetch("http://localhost:3000/api/blog", {
     // cache: "no-store",
     next: { revalidate: 3000 },
   });
@@ -34,16 +35,16 @@ import { getPost, postProp } from "@/lib/data";
   }
   const data = await res.json();
   return data;
-} */
+}
 async function BlogPage() {
-  // const posts = await getData();
-  const posts = await getPost(); //fetch without api
+  const posts = await getData();
+  //const posts = await getPost(); //fetch without api //!this for server action
   return (
-    <div className="mx-auto w-[80%] ">
+    <div className="mx-auto w-[80%] mb-32">
       <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">
         {posts.map((post: postProp) => (
           <PostCard post={post} key={post.id} />
-        ))}{" "}
+        ))}
         {/*  {postsTest.map((post) => (
           <PostCard src={post.url} key={post.id} title={post.title} />
         ))} */}

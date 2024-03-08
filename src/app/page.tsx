@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function page() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col items-center ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col items-center w-full md:w-[80%] h-svh items-center justify-center">
       <div className="flex justify-center flex-col flex-1">
         <h1 className="lg:text-8xl font-extrabold mb-8 text-5xl md:text-6xl">
           Create Though Agency
@@ -25,7 +25,7 @@ function page() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center ">
         <div className="relative lg:w-[800px] lg:h-[600px] md:w-[600px] md:h-[400px] h-[300px] w-[300px] hidden sm:flex">
           <Image src="/hero_1.gif" fill alt="gif " />
         </div>

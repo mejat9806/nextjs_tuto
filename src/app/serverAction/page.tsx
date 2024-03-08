@@ -6,6 +6,7 @@ function ServerAction() {
     console.log("hello");
   }
  */
+
   return (
     <div className="flex justify-center items-center">
       <form action={AddPost} className="flex flex-col gap-5 text-black">

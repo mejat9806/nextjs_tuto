@@ -93,7 +93,7 @@ body {
   transform: rotate(90deg);
 }
 .imageContainerBlog {
-  @apply md:w-[500px] md:h-[500px] relative w-[300px] h-[300px] sm:w-[350px];
+  @apply md:w-[400px] md:h-[400px] relative w-[200px] h-[400px] sm:w-[350px];
 }
 .imageContainerBlogProfile {
   width: 50px;

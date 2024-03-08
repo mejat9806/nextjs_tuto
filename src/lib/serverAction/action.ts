@@ -1,8 +1,9 @@
 "use server";
-
+//!this is server action code
 import { revalidatePath } from "next/cache";
 import { Post } from "../model";
 import { connectToDb } from "../utils";
+import { signIn, signOut } from "../auth";
 
 export async function AddPost(formData: any) {
   /* const title = formData.get("title");
@@ -42,4 +43,13 @@ export async function DeletePost(formData: any) {
     }
   }
   console.log();
+}
+
+export async function handleGithubLogin() {
+  "use server";
+  await signIn("github");
+}
+export async function handleGithubLogOut() {
+  "use server";
+  await signOut();
 }

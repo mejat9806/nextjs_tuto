@@ -3,15 +3,13 @@ import { getPostsingle } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-
-/* async function getData(slug: string) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+async function getData(slug: string) {
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`);
   if (!res.ok) {
-    throw new Error(res.statusText);
+    throw new Error(res.statusText.toString());
   }
-  const data = await res.json();
-  return data;
-} */
+  return res.json();
+}
 export const generateMetadata = async function ({
   //this good for SEO this dynamically generated
   params,
@@ -19,19 +17,32 @@ export const generateMetadata = async function ({
   params: { slug: string };
 }) {
   const { slug } = params;
-  const post = await getPostsingle(slug);
+  const post = await getData(slug);
+
+  // const post = await getPostsingle(slug);//!this for server action
 
   return {
     title: post.title,
     description: post.desc,
   };
 };
+
+async function deleteData(slug: string) {
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) {
+    throw new Error(res.statusText.toString());
+  }
+  return res.json();
+}
 async function SingularBlogPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
-
-  // const singularPostData = await getData(slug);
+  console.log(slug, "at line 31 page");
+  const post = await getData(slug);
+  console.log(post);
   // console.log(singularPostData.userId);
-  const post = await getPostsingle(slug);
+  //const post = await getPostsingle(slug); //!this for server action
   return (
     <div className=" w-full h-svh justify-center flex ">
       <div className="flex w-full justify-center">
@@ -50,13 +61,15 @@ async function SingularBlogPage({ params }: { params: { slug: string } }) {
                 </div>
                 <div className="flex gap-3 font-medium">
                   <span>Published</span>
-                  <span>{post.createdAt.toString().slice(4, 16)}</span>
+                  <span>
+                    {post.createdAt?.toString()?.slice(4, 16) || "12/12/121"}
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className=" w-full">
-              <p className="text-[15px] flex flex-wrap">{post?.desc}</p>
+              <p className="text-[15px] flex flex-wrap">{post.desc}</p>
             </div>
           </div>
         </div>

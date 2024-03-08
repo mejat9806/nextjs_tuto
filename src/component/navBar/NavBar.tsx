@@ -4,12 +4,20 @@ import LinkToPage from "./links/LinkToPage";
 import localFont from "next/font/local";
 import { useState } from "react";
 import Image from "next/image";
-const myFont = localFont({
+import { handleGithubLogOut } from "@/lib/serverAction/action";
+import { auth } from "@/lib/auth";
+const Anton = localFont({
   src: [{ path: "../../../public/font/Anton-Regular.ttf" }],
   variable: "--font-Anton",
 });
-
-function NavBar() {
+type sessionObjectType = {
+  session: {
+    user: { name: string; email: string; image: string };
+    expires: string;
+  };
+};
+function NavBar({ session }: sessionObjectType) {
+  console.log(session);
   const [open, setOpen] = useState(false);
   const links = [
     { href: "/", label: "Home" },
@@ -18,13 +26,12 @@ function NavBar() {
     { href: "/blog", label: "Blog" },
   ];
   //temp this is for login fuction
-  const session = true;
   const isAdmin = true;
   return (
     <div className="flex justify-between mt-10  ">
       <Link
         href={"/"}
-        className={`${myFont.className} sm:text-6xl text-3xl tracking-widest `}
+        className={`${Anton.className} sm:text-6xl text-3xl tracking-widest `}
       >
         <h1 className="underline decoration-red-300">
           L<span className="text-teal-200">o</span>g
@@ -35,14 +42,16 @@ function NavBar() {
         {links.map((link) => (
           <LinkToPage key={link.label} links={link}></LinkToPage>
         ))}
-        {session ? (
+        {session?.user ? (
           <>
-            {isAdmin && (
+            {session?.user && (
               <LinkToPage links={{ href: "/admin", label: "Admin" }} />
             )}
-            <button className="h-10 bg-red-300 text-black rounded-sm p-2 font-extrabold uppercase">
-              LogOut
-            </button>
+            <form action={handleGithubLogOut}>
+              <button className="h-10 bg-red-300 text-black rounded-sm p-2 font-extrabold uppercase">
+                LogOut
+              </button>
+            </form>
           </>
         ) : (
           <LinkToPage links={{ href: "/login", label: "Login" }} />

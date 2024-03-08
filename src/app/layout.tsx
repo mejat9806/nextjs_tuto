@@ -4,7 +4,7 @@ import "./globals.css";
 import NavBar from "@/component/navBar/NavBar";
 import Footer from "@/component/footer/Footer";
 import TestClientSideProviderTest from "@/component/testClientSideProviderTest";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { auth } from "@/lib/auth";
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700"],
@@ -15,19 +15,20 @@ export const metadata: Metadata = {
   description: "my First next js App",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
-    <html lang="en">
+    <html lang="en" className="">
       {/* <TestClientSideProviderTest> //this for useContext and redux react query*/}
 
       <body
-        className={`${roboto.className}   flex flex-col  sm:mx-10  justify-between`}
+        className={`${roboto.className}   flex flex-col  mx-10  justify-between h-svh `}
       >
-        <NavBar />
+        <NavBar session={session} />
         <div className="flex-1 justify-center my-10 flex">{children}</div>
         <Footer />
       </body>
