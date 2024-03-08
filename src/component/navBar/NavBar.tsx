@@ -10,14 +10,8 @@ const Anton = localFont({
   src: [{ path: "../../../public/font/Anton-Regular.ttf" }],
   variable: "--font-Anton",
 });
-type sessionObjectType = {
-  session: {
-    user: { name: string; email: string; image: string };
-    expires: string;
-  };
-};
-function NavBar({ session }: sessionObjectType) {
-  console.log(session);
+
+function NavBar({ session }: any) {
   const [open, setOpen] = useState(false);
   const links = [
     { href: "/", label: "Home" },

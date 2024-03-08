@@ -5,6 +5,7 @@ import NavBar from "@/component/navBar/NavBar";
 import Footer from "@/component/footer/Footer";
 import TestClientSideProviderTest from "@/component/testClientSideProviderTest";
 import { auth } from "@/lib/auth";
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700"],
