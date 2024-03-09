@@ -26,6 +26,9 @@
 body {
   @apply bg-darkteal text-white;
 }
+.formStyle > input {
+  @apply py-4 px-2 placeholder:capitalize;
+}
 
 .afterLink:hover::after {
   content: "";
@@ -42,7 +45,9 @@ body {
   animation: drop 0.5s infinite alternate;
   z-index: -1;
 }
-
+.formStyle {
+  @apply flex flex-col gap-10  backdrop-blur-3xl;
+}
 @keyframes drop {
   from {
     transform: translateX(-50%) translateY(0);

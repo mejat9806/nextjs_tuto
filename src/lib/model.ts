@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+//!this is where we creeate how data in our database will look like
 const userSchema = new mongoose.Schema(
   {
     username: {
@@ -17,8 +18,6 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: "String",
-      requird: true,
-      min: 6,
     },
     img: {
       type: "String",
