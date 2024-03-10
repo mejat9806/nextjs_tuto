@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { Post, User } from "../model";
 import { connectToDb } from "../utils";
 import { signIn, signOut } from "../auth";
+
 export async function AddPost(formData: any) {
   /* const title = formData.get("title");
   const desc = formData.get("desc");
@@ -25,6 +26,7 @@ export async function AddPost(formData: any) {
   }
   console.log(title, desc, slug, userId);
 }
+
 export async function DeletePost(formData: any) {
   /* const title = formData.get("title");
   const desc = formData.get("desc");

@@ -55,6 +55,15 @@ const postSchema = new mongoose.Schema(
   },
   { timestamps: true },
 );
-
+const testSchema = new mongoose.Schema({
+  name: {
+    type: "String",
+    require: true,
+  },
+  age: {
+    type: "Number",
+  },
+});
 export const User = mongoose.models.User || mongoose.model("User", userSchema);
 export const Post = mongoose.models.Post || mongoose.model("Post", postSchema);
+export const Test = mongoose.models.Test || mongoose.model("Test", testSchema);

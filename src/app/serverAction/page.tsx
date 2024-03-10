@@ -1,5 +1,4 @@
 import { AddPost, DeletePost } from "@/lib/serverAction/action";
-
 function ServerAction() {
   /*   async function sayHello() {
     "use server";

@@ -38,6 +38,19 @@ async function deleteData(slug: string) {
   }
   return res.json();
 }
+
+async function post(slug: string) {
+  // //!this is using api route
+  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+    method: "POST",
+    body: JSON.stringify(slug),
+    headers: { "Content-Type": "application/json" },
+  });
+  if (!res.ok) {
+    throw new Error(res.statusText.toString());
+  }
+  return res.json();
+}
 async function SingularBlogPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   console.log(slug, "at line 31 page");
