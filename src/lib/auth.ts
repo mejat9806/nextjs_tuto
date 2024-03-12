@@ -3,6 +3,8 @@ import GitHub from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDb } from "./utils";
 import { User } from "./model";
+import { authConfig } from "./auth.config";
+
 import bcrypt from "bcryptjs";
 
 async function login(credentials: any) {
@@ -38,6 +40,7 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  ...authConfig,
   providers: [
     GitHub({
       clientId: process.env.GITHUB_ID,
@@ -57,7 +60,6 @@ export const {
   callbacks: {
     //this callbacks use to check if the user is exist in our DB and if let them signin .if not exist it will create a new user in the database and login  them
     async signIn({ account, user, profile }) {
-      console.log(profile);
       if (account && account.provider === "github") {
         //this if is for checking the account signIn with github or not
         connectToDb();
@@ -79,5 +81,6 @@ export const {
       }
       return true; //if true if the user is already exist
     },
+    ...authConfig.callbacks, //this will make sure if the user does not log in they will only show the login page
   },
 });

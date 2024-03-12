@@ -28,7 +28,9 @@
     ".next/types/**/*.ts",
     "src/app/loading.tsx",
     "tailwind.config.js",
-    "src/lib/utils.ts"
+    "src/lib/utils.ts",
+    "src/lib/auth.config.ts",
+    "src/lib/auth.ts"
   ],
   "exclude": ["node_modules"]
 }

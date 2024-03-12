@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      height: {
+        "calc-vh": "calc(100vh - 200px)",
+      },
       animation: { silde: "slidein 100ms ease-linear " },
       keyframes: {
         slidein: {

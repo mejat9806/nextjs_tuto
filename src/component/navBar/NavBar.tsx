@@ -38,7 +38,7 @@ function NavBar({ session }: any) {
         ))}
         {session?.user ? (
           <>
-            {session?.user && (
+            {session?.user && session?.user.isAdmin && (
               <LinkToPage links={{ href: "/admin", label: "Admin" }} />
             )}
             <form action={handleGithubLogOut}>

@@ -46,7 +46,10 @@ body {
   z-index: -1;
 }
 .formStyle {
-  @apply flex flex-col gap-10  backdrop-blur-3xl;
+  @apply flex flex-col gap-10 h-fit;
+}
+.formStyle > .bellow {
+  @apply text-white font-black flex flex-col items-center justify-center;
 }
 @keyframes drop {
   from {
