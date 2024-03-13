@@ -17,7 +17,7 @@ export const generateMetadata = async function ({
 }: {
   params: { slug: string };
 }) {
-  const { slug } = params;
+  const { slug } = params; //params is a way to get the seachparams
   const post = await getData(slug);
 
   // const post = await getPostsingle(slug);//!this for server action

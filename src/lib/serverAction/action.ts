@@ -6,11 +6,13 @@ import { Post, User } from "../model";
 import { connectToDb } from "../utils";
 import { signIn, signOut } from "../auth";
 
-export async function AddPost(formData: any, previousState: any) {
+export async function AddPost(prevState: any, formData: any) {
+  //prevStae is nexxessary for useFormState
   /* const title = formData.get("title");
   const desc = formData.get("desc");
   const slug = formData.get("slug");
   const userID = formData.get("userId"); */
+  console.log(formData);
   const { title, desc, slug, userId } = Object.fromEntries(formData);
   try {
     connectToDb();
@@ -22,7 +24,7 @@ export async function AddPost(formData: any, previousState: any) {
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
-      throw new Error(error.message);
+      return { error: "adding post fail" };
     }
   }
   console.log(title, desc, slug, userId);
@@ -34,12 +36,13 @@ export async function DeletePost(formData: any) {
   const slug = formData.get("slug");
   const userID = formData.get("userId"); */
   const { id } = Object.fromEntries(formData);
+  console.log(id);
   try {
     connectToDb();
     await Post.findByIdAndDelete(id);
     revalidatePath("/blog");
     revalidatePath("/admin");
-    console.log("Post successfully created");
+    console.log("Post successfully delete");
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
@@ -64,7 +67,7 @@ export async function AddUser(previousState: any, formData: any) {
   } catch (error) {
     if (error instanceof Error) {
       console.log(error.message);
-      throw new Error(error.message);
+      return { error: "adding User fail" };
     }
   }
   console.log(username, email, password, img);

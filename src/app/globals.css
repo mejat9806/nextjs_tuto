@@ -59,6 +59,11 @@ body {
     transform: translateX(-50%) translateY(-2px);
   }
 }
+.AdminImg {
+  position: relative;
+  height: 50px;
+  width: 50px;
+}
 .afterLinkStay::after {
   content: "";
   position: absolute;
