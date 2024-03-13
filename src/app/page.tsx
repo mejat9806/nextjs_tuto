@@ -1,6 +1,8 @@
+import { connectToDb } from "@/lib/utils";
 import Image from "next/image";
 
 function page() {
+  connectToDb();
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 sm:grid-flow-col items-center w-full md:w-[80%] h-svh items-center justify-center">
       <div className="flex justify-center flex-col flex-1">

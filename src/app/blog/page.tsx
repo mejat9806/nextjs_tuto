@@ -44,7 +44,7 @@ async function BlogPage() {
     <div className="mx-auto w-[80%] mb-32">
       <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">
         {posts.map((post: postProp) => (
-          <PostCard post={post} key={post.id} />
+          <PostCard post={post} key={post.userId} />
         ))}
         {/*  {postsTest.map((post) => (
           <PostCard src={post.url} key={post.id} title={post.title} />

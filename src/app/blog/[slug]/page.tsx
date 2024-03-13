@@ -62,7 +62,7 @@ async function SingularBlogPage({ params }: { params: { slug: string } }) {
     <div className=" w-full h-svh justify-center flex ">
       <div className="flex w-full justify-center">
         <div className=" imageContainerBlogSingle hidden md:flex  flex-1 max-w-96 min-w-[200px]">
-          <Image src={post.img} fill alt="ijen" />
+          <Image src={post.img || "no image"} fill alt="ijen" />
         </div>
         <div className=" flex flex-2 items-start flex-col gap-4 p-6 ">
           <h1 className="text-7xl text-teal-500 font-bold">{post.title}</h1>
