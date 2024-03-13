@@ -3,7 +3,7 @@ import { getPostsingle } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-async function getData(slug: string) {
+/* async function getData(slug: string) {
   // //!this is using api route
   //const res = await fetch(`http://127.0.0.1:3000/api/blog/${slug}`);
   const res = await getPostsingle(slug); //!this for server action
@@ -29,7 +29,7 @@ export const generateMetadata = async function ({
     description: post.desc,
   };
 };
-
+ */
 // async function deleteData(slug: string) {
 //   // //!this is using api route
 //   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
