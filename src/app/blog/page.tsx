@@ -25,21 +25,22 @@ import { getPost, postProp } from "@/lib/data";
 ];
  */
 
-async function getData() {
-  //!this is using api route
-  const res = await fetch("http://127.0.0.1:3000/api/blog", {
-    // cache: "no-store",
-    next: { revalidate: 3000 },
-  });
-  if (!res.ok) {
-    throw new Error("Error went wrong");
-  }
-  const data = await res.json();
-  return data;
-}
+// async function getData() {
+//   //!this is using api route
+//   const res = await fetch("http://127.0.0.1:3000/api/blog", {
+//     // cache: "no-store",
+//     next: { revalidate: 3000 },
+//   });
+//   if (!res.ok) {
+//     throw new Error("Error went wrong");
+//   }
+//   const data = await res.json();
+//   return data;
+// }
 async function BlogPage() {
-  const posts = await getData();
-  //const posts = await getPost(); //fetch without api //!this for server action
+  // const posts = await getData();
+  const posts = await getPost(); //fetch without api //!this for server action
+  console.log(posts);
   return (
     <div className="mx-auto w-[80%] mb-32">
       <div className="grid sm:grid-cols-1 lg:grid-cols-2 grid-cols-1 sm:gap-10 gap-5 ">
