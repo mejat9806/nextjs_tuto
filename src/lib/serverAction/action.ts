@@ -6,7 +6,7 @@ import { Post, User } from "../model";
 import { connectToDb } from "../utils";
 import { signIn, signOut } from "../auth";
 
-export async function AddPost(prevState: any, formData: any) {
+export async function AddPost(formData: any) {
   //prevStae is nexxessary for useFormState
   /* const title = formData.get("title");
   const desc = formData.get("desc");
