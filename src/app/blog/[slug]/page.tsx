@@ -5,9 +5,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 async function getData(slug: string) {
   // //!this is using api route
-  const res = await fetch(
-    `https://nextjs-tuto-7zum50kn4-mejat9806s-projects.vercel.app/${slug}`,
-  );
+  const res = await fetch(`http://192.168.0.12:3000/api/blog/${slug}`);
   if (!res.ok) {
     throw new Error(res.statusText.toString());
   }
