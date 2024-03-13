@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 async function getData(slug: string) {
   // //!this is using api route
-  const res = await fetch(`http://115.133.38.14/api/blog/${slug}`);
+  const res = await fetch(`http://127.0.0.1:3000/api/blog/${slug}`);
   if (!res.ok) {
     throw new Error(res.statusText.toString());
   }
@@ -28,16 +28,16 @@ export const generateMetadata = async function ({
   };
 };
 
-/* async function deleteData(slug: string) {
-  // //!this is using api route
-  const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
-    method: "DELETE",
-  });
-  if (!res.ok) {
-    throw new Error(res.statusText.toString());
-  }
-  return res.json();
-} */
+// async function deleteData(slug: string) {
+//   // //!this is using api route
+//   const res = await fetch(`http://localhost:3000/api/blog/${slug}`, {
+//     method: "DELETE",
+//   });
+//   if (!res.ok) {
+//     throw new Error(res.statusText.toString());
+//   }
+//   return res.json();
+// }
 
 /* async function post(slug: string) {
   // //!this is using api route

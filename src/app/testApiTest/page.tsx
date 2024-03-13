@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 
 async function getDataAll(): Promise<any[]> {
   const res = await fetch(
-    "http://localhost:3000/api/testApi",
+    "http://127.0.0.1:3000/api/testApi",
 
     { next: { revalidate: 4000 } },
   );
@@ -18,7 +18,7 @@ async function testPost(formData: any): Promise<POSTTYPE | null> {
   const data = Object.fromEntries(formData);
   console.log(data);
 
-  const res = await fetch("http://localhost:3000/api/testApi", {
+  const res = await fetch("http://127.0.0.1:3000/api/testApi", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
