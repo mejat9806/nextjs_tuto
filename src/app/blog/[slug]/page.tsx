@@ -5,7 +5,9 @@ import Link from "next/link";
 import { Suspense } from "react";
 async function getData(slug: string) {
   // //!this is using api route
-  const res = await fetch(`http://127.0.0.1:3000/api/blog/${slug}`);
+  //const res = await fetch(`http://127.0.0.1:3000/api/blog/${slug}`);
+  const res = await getPostsingle(slug); //!this for server action
+
   if (!res.ok) {
     throw new Error(res.statusText.toString());
   }
