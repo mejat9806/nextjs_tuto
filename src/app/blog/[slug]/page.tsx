@@ -58,8 +58,8 @@ async function SingularBlogPage({ params }: { params: { slug: string } }) {
   /*  console.log(slug, "at line 31 page");
   const post = await getData(slug);
   console.log(post); */
-  // console.log(singularPostData.userId);
   const post = await getPostsingle(slug); //!this for server action
+  console.log(post);
   return (
     <div className=" w-full h-svh justify-center flex ">
       <div className="flex w-full justify-center">
