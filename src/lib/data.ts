@@ -53,6 +53,7 @@ export async function getPost() {
     throw new Error("fail to fetch error 1");
   }
 }
+// safasf
 export async function getPostsingle(slug: string) {
   try {
     connectToDb();
