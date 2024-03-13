@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Access the MongoDB URI from the environment variables
-const mongoURL = process.env.MONGO;
+const mongoURL = process.env.MONGODB_URI;
 
 // Object to track connection status
 const connection: any = {};
